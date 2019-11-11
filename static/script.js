@@ -1,10 +1,12 @@
-const xmlHttp = new XMLHttpRequest();
+/*const xmlHttp = new XMLHttpRequest();
 xmlHttp.onreadystatechange = function () {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
         renderTable(JSON.parse(xmlHttp.responseText));
 };
 xmlHttp.open("GET", "http://127.0.0.1:5000/api", true);
-xmlHttp.send();
+xmlHttp.send();*/
+
+renderTable([]);
 
 function renderTable(data) {
     const configs = getConfigs();
@@ -73,12 +75,11 @@ function getConfigs() {
     }
 }
 
-Date.prototype.getWeek = function () {
-    const firstJan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - firstJan) / 86400000) + firstJan.getDay() + 1) / 7);
-};
-
 function getWeekType() {
+    Date.prototype.getWeek = function () {
+        const firstJan = new Date(this.getFullYear(), 0, 1);
+        return Math.ceil((((this - firstJan) / 86400000) + firstJan.getDay() + 1) / 7);
+    };
     const table = {
         37: "a",
         38: "b",
@@ -126,7 +127,7 @@ function getWeekType() {
     try {
         return table[date.getWeek()]
     } catch (e) {
-        alert("Ferien!");
+	alert("Ferien!");
         return "a"
     }
 }
