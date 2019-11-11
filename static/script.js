@@ -24,6 +24,7 @@ function renderTable(data) {
                     if (
                         (subject === "f" && !configs.f) || (subject === "f" && teachers[index] !== configs.f) ||
                         (subject === "ph" && !configs.ph) || (subject === "ph" && teachers[index] !== configs.ph) ||
+                        (subject === "phl" && !configs.ph) || (subject === "phl" && teachers[index] !== configs.ph) ||
                         (subject === "ch" && !configs.ch) || (subject === "ch" && teachers[index] !== configs.ch) ||
                         (subject === "s" && teachers[index] !== configs.s) ||
                         (subject === "eth" && configs.e !== "eth") ||
